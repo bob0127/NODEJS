@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動態增長表格</title>
+    <style>
+        body {
+              color: rgb(182, 37, 37); 
+              display: block;
+              background-position: auto;
+              background-size: cover;
+              justify-content: center;
+              align-items: center;
+              overflow-x: auto;
+            }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">動態增長表格</h1>
+    <div>
+        <table id="dynamicTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名稱</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 預設行 -->
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <button id="addRowBtn">新增行</button>
+        <button id="resetTableBtn">清除所有行</button>
+    </div>
+    <script>
+        // 選取表格和按鈕
+        const table = document.getElementById('dynamicTable').getElementsByTagName('tbody')[0];
+        const addRowBtn = document.getElementById('addRowBtn');
+        const resetTableBtn = document.getElementById('resetTableBtn');
+
+        // 新增行的函數
+        addRowBtn.addEventListener('click', () => {
+            // 計算行號
+            const rowCount = table.rows.length + 1;
+
+            // 創建新的行
+            const newRow = table.insertRow();
+
+            // 新增行中的每個單元格
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+
+            // 填充內容
+            
+        });
+
+        // 清除所有行的函數
+        resetTableBtn.addEventListener('click', () => {
+            // 清除 tbody 中的所有行，只保留標題行
+            const rows = table.getElementsByTagName('tr');
+            while (rows.length > 0) {
+                table.deleteRow(0);
+            }
+
+        });
+    </script>
+</body>
+</html>
